@@ -38,3 +38,46 @@ final dan const merupakan keyword/kata kunci yang dapat digunakan untuk membuat 
 3. Menambahkan Text yang menampilkan nilai dan paritas dari counter saat ini.
 4. Menambahkan style sehingga teks berwarna biru saat angka bernilai ganjil dan berwarna merah saat angka bernilai genap
 5. Melakukan add-commit-push ke repositori baru di GitHub dengan nama pbp-flutter-lab
+
+# Tugas 8
+
+## Jelaskan perbedaan Navigator.push dan Navigator.pushReplacement
+
+Perbedaannya adalah Navigator.push setelah berpindah halaman dapat kembali ke halaman sebelumnya sedangkan Navigator.pushReplacement setelah berpindah halaman tidak dapat kembali ke halaman sebelumnya.
+
+## Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya
+
+- Row : menampilakan tampilan horizontal pada children
+- Container : widget yang digunakan untuk membungkus widget lain 
+- Scaffold : widget yang digunakan untuk membuat halamat di flutter
+- Appbar : menampilkan toolbar di flutter.
+- Center : memposisikan widget child di tengah
+- Column : memposisikan widget chlidren secara vertikal
+- Drawer : panel untuk navigasi
+- Text : menampilkan sebuah string
+- TextFormField : input form berupa string
+- Form : membuat form
+- DateTime: widget representatif dari sistem penanggalan
+
+
+## Sebutkan jenis-jenis event yang ada pada Flutter (contoh: onPressed)
+
+- onPressed() : event yang menjalankan suatu fungsi ketika sebuah button di-click
+  
+- onTap() : event yang menjalankan suatu fungsi ketika sebuah widget di-click satu kali
+  
+- onChanged() : event yang menjalankan  suatu fungsi ketika suatu value pada sebuah widget diubah.
+  
+- onSaved() : event yang menjalankan suatu fungsi ketika sebuah form disimpan
+
+## Jelaskan bagaimana cara kerja Navigator dalam "mengganti" halaman dari aplikasi Flutter
+
+`Navigator` mengganti halaman dengan memanfaatkan sebuah `Stack`. Halaman yang ditampilkan di paling atas (dilihat oleh user) adalah halaman yang terdapat pada top of stack. Mengganti halaman dapat memanfaatkan `push` untuk menimpa halaman sebelumnya, `pushReplacement` untuk mengganti halaman sebelumnya, `pop` untuk menghapus halaman yang sedang ditampilkan ke user.
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas
+
+1. Membuat file drawer.dart
+2. Membuat file budget.dart 
+3. Membuat file form.dart 
+4. Membuat file data.dart
+

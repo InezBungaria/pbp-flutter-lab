@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:counter_7/drawer.dart';
+import 'package:counter_7/drawer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,25 +24,22 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green, //ganti background
       ),
-      home: const MyHomePage(title: 'Program Counter'),
+      home: const MyHomePage(title: 'Program Counter'), 
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
   // how it looks.
-
   // This class is the configuration for the state. It holds the values (in this
   // case the title) provided by the parent (in this case the App widget) and
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
-
   final String title;
 
   @override
@@ -49,7 +48,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  String genap = 'genap';
+  String genap = 'genap'; 
   String ganjil = 'ganjil'; 
   void _incrementCounter() {
     setState(() {
@@ -61,7 +60,6 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
-
   void _decrementCounter(){
     setState(() {
       if(_counter > 0) {
@@ -85,6 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
+      drawer: const MyDrawer(),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
@@ -106,10 +105,11 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             if (_counter % 2 == 0)... [
-              const Text('GENAP', style: TextStyle(color: Colors.blue)),
+              const Text('GENAP',
+              style:TextStyle(color: Colors.red),), 
             ]else...[
-              const Text(
-              'GANJIL', style: TextStyle(color: Colors.red)),
+              const Text('GANJIL',
+              style: TextStyle(color: Colors.blue),), 
             ],
             Text(
               '$_counter',
@@ -125,22 +125,32 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            FloatingActionButton(
+            if (_counter == 0)... {
+              
+              Expanded(child: Container()),
+              FloatingActionButton(
+                onPressed: _incrementCounter,
+                tooltip: 'Increment',
+                child: const Icon(Icons.add),
+              ), // This trailing comma makes auto-formatting nicer for build methods.
+            }
+            else... {
+              FloatingActionButton(
+              
               onPressed: _decrementCounter,
               tooltip: 'Decrement',
               child: const Icon(Icons.remove),
-            ), // This trailing comma makes auto-formatting nicer for build methods.
-            Expanded(child: Container()),
-            FloatingActionButton(
-              onPressed: _incrementCounter,
-              tooltip: 'Increment',
-              child: const Icon(Icons.add),
-            ), // This trailing comma makes auto-formatting nicer for build methods.
+              ), // This trailing comma makes auto-formatting nicer for build methods.
+              Expanded(child: Container()),
+              FloatingActionButton(
+                onPressed: _incrementCounter,
+                tooltip: 'Increment',
+                child: const Icon(Icons.add),
+              ), // This trailing comma makes auto-formatting nicer for build methods.
+            }            
           ],
-        )
-        
-      )
-      
+        )       
+      )      
     );
   }
 }
